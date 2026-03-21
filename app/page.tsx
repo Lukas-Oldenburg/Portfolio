@@ -86,9 +86,10 @@ const projects = [
 export default function Home() {
   const handleScrollToNext = () => {
     const sectionIds = ['hero', 'tech-stack', 'timeline', 'certificates', 'projects'];
-    const sections = sectionIds
+
+    const sections: HTMLElement[] = sectionIds
       .map((id) => document.getElementById(id))
-      .filter(Boolean);
+      .filter((section): section is HTMLElement => section !== null);
 
     const currentY = window.scrollY;
     const offset = 140;

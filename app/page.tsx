@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 const techStack = [
@@ -42,9 +44,9 @@ const timeline = [
   },
   {
     year: 'ab 2026',
-    title: 'Studium Informatik',
-    subtitle: 'Geplant',
-    text: 'Nächster Schritt mit Fokus auf Informatik, Software Engineering und Data Science.',
+    title: 'TU Wien',
+    subtitle: 'Informatikstudium',
+    text: 'Fokus auf Data Science und Cybersecurity.',
   },
 ];
 
@@ -57,7 +59,7 @@ const certificates = [
   {
     title: 'EBCL B',
     subtitle: 'European Business Competence Licence',
-    text: 'Abschlussprüfung laut CV noch ausständig.',
+    text: 'Abschlussprüfung noch ausständig.',
   },
   {
     title: 'Englisch C1',
@@ -82,9 +84,31 @@ const projects = [
 ];
 
 export default function Home() {
+  const handleScrollToNext = () => {
+    const sectionIds = ['hero', 'tech-stack', 'timeline', 'certificates', 'projects'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const currentY = window.scrollY;
+    const offset = 140;
+
+    for (const section of sections) {
+      if (section.offsetTop > currentY + offset) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+    }
+
+    sections[0]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <main className="min-h-screen bg-[#0a0a0f] text-white">
-      <section className="mx-auto grid min-h-screen max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:px-10">
+      <section
+        id="hero"
+        className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:px-10"
+      >
         <div>
           <div className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300">
             Software Development · Machine Learning · Data
@@ -103,6 +127,7 @@ export default function Home() {
             <a
               href="https://github.com/Lukas-Oldenburg"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
             >
               GitHub
@@ -110,6 +135,7 @@ export default function Home() {
             <a
               href="https://www.linkedin.com/in/lukas-oldenburg-5774ba3ab/"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
             >
               LinkedIn
@@ -117,6 +143,7 @@ export default function Home() {
             <a
               href="/CV.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-2xl border border-white bg-white px-5 py-3 text-sm font-medium text-black transition hover:opacity-90"
             >
               CV Download
@@ -125,7 +152,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-md overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-3 shadow-2xl">
+          <div className="relative w-full max-w-md scale-90 overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-3 shadow-2xl">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[24px]">
               <Image
                 src="/portrait.jpg"
@@ -139,7 +166,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <button
+        type="button"
+        onClick={handleScrollToNext}
+        className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 animate-bounce flex-col items-center gap-1 text-zinc-400 transition hover:text-white"
+      >
+        <span className="text-xs">Scroll</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <section id="tech-stack" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="mb-10">
           <p className="mb-3 text-sm uppercase tracking-[0.25em] text-zinc-500">Tech Stack</p>
           <h2 className="text-3xl font-semibold sm:text-4xl">Technologien</h2>
@@ -154,7 +199,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <section id="timeline" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="mb-12">
           <p className="mb-3 text-sm uppercase tracking-[0.25em] text-zinc-500">Timeline</p>
           <h2 className="text-3xl font-semibold sm:text-4xl">Ausbildung & Weg</h2>
@@ -183,7 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <section id="certificates" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="mb-10">
           <p className="mb-3 text-sm uppercase tracking-[0.25em] text-zinc-500">Certificates</p>
           <h2 className="text-3xl font-semibold sm:text-4xl">Zertifikate</h2>
@@ -199,7 +244,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <section id="projects" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="mb-10">
           <p className="mb-3 text-sm uppercase tracking-[0.25em] text-zinc-500">Projects</p>
           <h2 className="text-3xl font-semibold sm:text-4xl">Projekte</h2>

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Lukas Oldenburg",
   description: "Software Development · Machine Learning · Data",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/icon.ico',
   },
   openGraph: {
     title: 'Lukas Oldenburg',

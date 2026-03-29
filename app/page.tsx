@@ -39,14 +39,14 @@ const timeline = [
   {
     year: '2025 – 2026',
     title: 'Zivildienst',
-    subtitle: 'Aktuelle Praxisphase',
+    subtitle: 'Landesklinikum Baden',
     text: 'Praxis unter realem Zeitdruck mit Verantwortung, Struktur und sauberer Ausführung.',
   },
   {
     year: 'ab 2026',
     title: 'TU Wien',
     subtitle: 'Informatikstudium',
-    text: 'Fokus auf Data Science und Cybersecurity.',
+    text: 'Spezialisierung auf Data Science und Cybersecurity.',
   },
 ];
 

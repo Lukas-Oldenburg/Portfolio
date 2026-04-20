@@ -265,6 +265,13 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <footer className="mx-auto max-w-7xl px-6 py-10 lg:px-10 mt-10 border-t border-white/10 flex justify-between items-center text-sm text-zinc-500">
+        <span>© {new Date().getFullYear()} Lukas Peter Oldenburg</span>
+        <a href="/impressum" className="hover:text-white transition">
+          Impressum
+        </a>
+      </footer>
     </main>
   );
 }

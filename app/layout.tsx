@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'Lukas Oldenburg',
     images: [
       {
-        url: '/preview.png', // optional für Link-Vorschau
+        url: '/preview.png',
         width: 1200,
         height: 630,
       },
@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

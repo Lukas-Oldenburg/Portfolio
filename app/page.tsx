@@ -265,7 +265,8 @@ export default function Home() {
           ))}
         </div>
       </section>
-
+      <div data-planoo-contact-form="wr_v1BtQUS8G6-Dy_My4i_MSWwdwYMLWrkA" data-planoo-language="en"></div>
+<script src="https://www.planoo.ai/contact-widget.js?v=8" data-planoo-origin="https://www.planoo.ai" defer></script>
       <footer className="mx-auto max-w-7xl px-6 py-10 lg:px-10 mt-10 border-t border-white/10 flex justify-between items-center text-sm text-zinc-500">
         <span>© {new Date().getFullYear()} Lukas Peter Oldenburg</span>
         <a href="/impressum" className="hover:text-white transition">
